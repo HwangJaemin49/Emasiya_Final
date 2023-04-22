@@ -1,6 +1,10 @@
 # Emasiya_Final
 
 
+## About 'Emasiya'
+Imashiya is a website that introduces good restaurants around Ewha Womans University. For students who have never been to school in the COVID-19 era, you can build a database of restaurants, review, and leave stars.
+
+
 ## How to use
 
 
@@ -17,7 +21,3 @@
 
 
 ### 'Open Preview in New Tab'
-
-
-## About 'Emasiya'
-
