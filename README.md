@@ -8,7 +8,7 @@ Imashiya is a website that introduces good restaurants around Ewha Womans Univer
 ## How to use
 
 
-<https://goor.me/ttudT3WWSb4mHmdF9><br>
+<https://goor.me/ttudT3WWSb4mHmdF9><br><br>
 1. Access to link
 
 
@@ -18,3 +18,10 @@ Imashiya is a website that introduces good restaurants around Ewha Womans Univer
 
 ![image](https://user-images.githubusercontent.com/97292379/233781250-550296ee-c55b-47af-8c4e-8601bacc10ba.png)<br>
 3. 'Open Preview in New Tab'
+
+
+## Development Tools
+- goormide
+- HTML , CSS, JS
+- Flask
+- Firebase
