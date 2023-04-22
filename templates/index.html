@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link
+            rel="stylesheet"
+            type="text/css"
+            href="{{ url_for('static',filename='module.css')}}"
+        />
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap"
+            rel="stylesheet"
+        />
+        <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+    </head>
+    <body>
+        <nav>
+            <a href="/home">
+                <img
+                    src="{{ url_for('static',filename='Images/logo.png')}}"
+                    id="logo"
+                    style="float: left;"
+                /></a>
+            <ul style="list-style-type: none; margin: 0px;">
+                <li><a href="/home"> Home </a></li>
+                <li><a href="/shop_map"> Map </a></li>
+                <li><a href="/list"> Shop list </a></li>
+                <li><a href="/mystore"> MyStore </a></li>                
+            </ul>
+
+            <!--여기 수정 : 로그인 되어있는 상태일 경우 Sign Up 대신 LogOut 연결하기 , ID 표시는 그대로 유지!-->
+            <ul style="list-style-type: none; margin: 0px;">
+                {% if session['id'] %}
+                <li><a class="rightmenu"> {{session['id']}}</a></li>
+                {% else %}
+                <li><a class="rightmenu" href="/login">Log In</a></li>
+                {% endif %}
+                <span
+                    style="
+                        float: right;
+                        height: 40px;
+                        margin-top: 30px;
+                        border-right: solid 2px grey;
+                    "
+                ></span>
+                {% if session['id'] %}
+                <li><a class="rightmenu" href="/logout"> Log out </a></li>
+                {% else %}
+                <li><a class="rightmenu" href="/signup"> Sign up </a></li>
+                {% endif %}
+            </ul>
+            <a href="/mystore"
+                ><img
+                    src="{{ url_for('static',filename='Images/default_profile.png')}}"
+                    id="profile"
+                    style="float: right;"
+            /></a>
+        </nav>
+        {% block section %}
+        
+        {% endblock section %}
+    </body>
+</html>

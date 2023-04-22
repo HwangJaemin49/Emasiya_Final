@@ -1,0 +1,68 @@
+<h2>
+    <br><br>
+    이 화면에서는 사용자가 입력한 리뷰 정보를 보여줍니다.
+</h2>
+  <br><br><hr>
+<p>
+    메뉴가 나오는데 걸린 시간: {{time_r}}
+    
+</p>
+
+  <br><br><hr>
+<p>
+    전체적인 식당 청결 별점 (0~5) : {{rating}}
+</p>
+  <br><br><hr>
+<p>
+    식당 분위기: 
+    {% if mood=="road" %}
+    길거리음식입니다.
+    {% endif %}
+     {% if mood=="alone" %}
+    혼밥에 적합합니다. 
+    {% endif %}
+     {% if mood=="dating" %}
+    데이트에 적합합니다!
+    {% endif %}
+     {% if mood=="family" %}
+        가족식사에 적합합니다.
+    {% endif %}
+     {% if mood=="study" %}
+    카공에 적합합니다.
+    {% endif %}
+</p>
+  <br><br><hr>
+<p>
+   메뉴 이름 : {{menuName}}
+</p>
+
+  <br><br><hr>
+<p>
+    리뷰: {{reviewText}}
+</p>
+
+  <br><br><hr>
+<p>
+    메뉴 별점 : {{menu1_rating}}
+</p>
+  <br><br><hr>
+<p>
+    맵기 정도 : 
+    {% if spicy=="0" %}
+    안 맵습니다.
+    {% endif %}
+      {% if spicy=="1" %}
+     신라면 정도의 맵기입니다.
+    {% endif %}
+     {% if spicy=="2" %}
+    불닭 정도의 맵기입니다.    
+    {% endif %}
+     {% if spicy=="3" %}
+    죽음 정도의 맵기입니다.
+    {% endif %}
+</p>
+  <br><br><hr>
+<p>
+    메뉴 사진 업로드
+</p>
+<img src="{{image_path_r}}" alt="review Image uploaded">

@@ -1,0 +1,172 @@
+{% extends "index.html" %}
+{% block section %}
+
+        <link
+            rel="stylesheet"
+            type="text/css"
+            href="{{ url_for('static',filename='shop_detail.css') }}"
+        />
+        
+        <hr id="greyLine" />
+
+        <img
+            src="{{ url_for('static',filename='Images/sample_shop_image.png' ) }}"
+            class="top_image" 
+        />
+
+
+        <div class="shop_info_container">
+            <div class="shop_info_item" style="line-height: 2;">
+                <b style="color: dimgrey; vertical-align: middle;"> {{data.address}}   </b>&nbsp;
+                <span class="type" style="vertical-align: middle;"> {{data.category}} </span><br />
+                <span>
+                    <span class = "rating" style = "font-size : 25px;">
+                            <div class = "starFilled" style= "color : darkgreen; width: {{avg_rate}}em">
+                                ★★★★★
+                            </div>
+
+                            <div class = "starUnfilled">
+                                ★★★★★
+                                <span style="color: black">{{avg_rate}}</span>
+                            </div>
+                    </span>
+                </span>
+            </div>
+            <div></div>
+            <div class="shop_info_item">
+                <b style="font-size: 50px;"> {{data.name}} </b>&nbsp;&nbsp;
+                <div style="display : inline-block; position : relative; font-size:30px; color:red; right:5px; bottom:20px">
+                {% if bookmarked == 0 %}
+                    <a style="text-decoration : none; color: white" href="/bookmark/detail/{{data.name}}"> ♥ </a>
+                {% else %}
+                    <a style="text-decoration : none; color: red" href="/bookmark_delete/detail/{{data.name}}"> ♥ </a>
+                {% endif %}
+                    
+                </div>
+                
+                <span style="position: relative; top: 5px; left: -40px;"> 찜 {{ data.bookmarked }} </span>
+            </div>
+            <div class="shop_info_item">
+                {{data.link}}<br />
+                | {{data.phone}} |
+                {%if data[parking] =="yes"%} 주차 가능 {%endif%}
+                {%if data[parking] =="no"%} 주차 불가능 {%endif%}
+            </div>
+        </div>
+
+        <br />
+
+        <!-- 메뉴 -->
+        <div style="text-align: center; vertical-align: middle;">
+            <div style="width: 1040px; margin: auto; text-align: left;">
+                <div>
+                    <!-- 대표메뉴 : rate 가 가장 높은 메뉴로 선정-->
+                    
+                    {% for mainMenu in data.menu | sort(reverse = true, attribute="rate") %}
+                    {% if loop.first %} 
+                    <div class="mainImage">
+                        <img src="{{ url_for('static',filename='Images/' + data.menu[mainMenu].img_path ) }}" />
+                    </div>
+
+                    <div style="float: left; padding:40px 0px;">
+                        
+                        <br />
+                        대표메뉴<br />
+                        <b style="font-size: 30px;"> {{ data.menu[mainMenu].menuName }}</b>
+                        &nbsp; &nbsp;
+                        <b style="font-size: 20px;"> {{ data.menu[mainMenu].price }} 원</b><br />
+                        <div class = "rating">
+                            <div class = "starFilled" style= "width:{{data.menu[mainMenu].rate}}em">
+                                ★★★★★ 
+                            </div>
+
+                            <div class = "starUnfilled">
+                                ★★★★★
+                                <span style = "color : black; font-size : 15px;">{{ '%0.2f' | format(data.menu[mainMenu].rate)}}</span>
+                            </div>
+                        </div>
+                        <div style="height : 10px;"></div>
+                    </div>
+                    <div style="float: left; margin-left: 50px;">
+                        <div style="height: 13px;"></div>
+                        <b style="font-size: 20px;">벗들의 한줄평</b><br />
+                        {% for comment in data.menu[mainMenu].review | sort(case_sensitive=true, reverse=true) %}  
+                        
+                        <!-- 부등호를 html 태그로 인식해서 좀 이상한데 작동은 잘 되는것같아요 -->
+                        {% if loop.index<5 %}
+                            <div class="comment">{{ data.menu[mainMenu].review[comment].reviewText[0 : 20] }}</div><br>
+                        {% endif %}
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+                    {% endfor %}
+
+                    <br />
+                    <div class="times">
+                        영업시간<br>
+                        {{ data.open_time }} ~ {{ data.close_time }} <br><br>
+                        
+                        브레이크<br>
+                        {{ data.breaktime }}<br><br>
+                        
+                        휴무<br>
+                        {{ data.noop }}
+                    </div>
+                </div>
+
+                <br />
+                <div style="clear: both;">
+                    <br />
+                    &nbsp;&nbsp;
+                    <b style="font-size: 30px;">메뉴</b>&nbsp;
+                    <a href="/menus/{{ data.name }}" style="text-decoration:none; color:dimgrey;">자세히</a>
+                    <a href="/menu_upload/{{ data.name }}"
+                       style="text-decoration:none; float:right; position:relative; top:20px; right:20px; color:dimgrey; ">추가하기</a>
+                    <hr id="blackLine" />
+                    
+                    
+                    {% for d in data.menu %}
+                    <a href="/review_list/{{ data.name }}/{{data.menu[d].menuName}}" style="text-decoration: none; color : black">
+                    <div class="menuInfo">
+                        <div class="image". style="overflow:hidden; text-align:center">
+                            <img src="{{ url_for('static',filename='Images/' + data.menu[d].img_path ) }}"
+                                 style = "height:180px"
+                            />
+                        </div>
+                       
+                        <br />
+                        <b style="font-size: 25px;">{{ data.menu[d].menuName }}</b>&nbsp;
+                        <b style="font-size: 15px;">{{ data.menu[d].price }}원</b><br />
+                        
+                        <div class = "rating">
+                            <div class = "starFilled" style= "left : 190px; width:{{data.menu[d].rate}}em">
+                                ★★★★★ 
+                            </div>
+
+                            <div class = "starUnfilled">
+                                ★★★★★
+                                <span style = "color : black; font-size : 15px;">{{ '%0.2f' | format(data.menu[d].rate)}}</span>
+                            </div>
+                        </div>
+    
+                        {% for show in data.menu[d].review | reverse %}
+                            {% if loop.index==1 or loop.index==2 %}
+                                <div class="menuComment">{{ data.menu[d].review[show].reviewText[0 : 25] }}</div>
+                            {% endif %}
+                        {% endfor %}
+                    </div> 
+                    {% endfor %}
+                    </a>
+                </div>
+                <br>
+                <a href="/review_upload/{{data.name}}/" style="text-decoration: none; color : black">
+                <div style="text-align : center; clear:both">
+                    <br>
+                    <div class="yellowIcon" style="margin : auto; float:none">리뷰작성하기</div>
+                    <br><br>
+                </div>
+                </a>
+
+            </div>
+        </div>
+{% endblock section %}
