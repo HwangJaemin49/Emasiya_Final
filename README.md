@@ -5,6 +5,17 @@
 Imashiya is a website that introduces good restaurants around Ewha Womans University. For students who have never been to school in the COVID-19 era, you can build a database of restaurants, review, and leave stars.
 
 
+## Development Tools
+- goormide
+- HTML , CSS, JS
+- Flask
+- Firebase
+
+
+## Development Period
+2022 September ~ December
+
+
 ## How to use
 
 
@@ -18,10 +29,3 @@ Imashiya is a website that introduces good restaurants around Ewha Womans Univer
 
 ![image](https://user-images.githubusercontent.com/97292379/233781250-550296ee-c55b-47af-8c4e-8601bacc10ba.png)<br>
 3. 'Open Preview in New Tab'
-
-
-## Development Tools
-- goormide
-- HTML , CSS, JS
-- Flask
-- Firebase
