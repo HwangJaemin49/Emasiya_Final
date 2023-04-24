@@ -13,7 +13,7 @@ Imashiya is a website that introduces good restaurants around Ewha Womans Univer
 
 
 ## Development Period
-2022 September ~ December
+SEP 2022 - DEC 2022
 
 
 ## How to use
