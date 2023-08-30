@@ -15,7 +15,7 @@
 2022.09 - 2022.12
 
 
-## 개발에 참여 페이지
+## 개발에 참여한 페이지
 
 ![메인 화면](https://github.com/HwangJaemin49/Emasiya_Final/assets/97292379/58ba7ae6-3901-4fec-9ecc-22e1c23031f3)<br>
 메인 페이지<br><br>
