@@ -18,4 +18,8 @@
 ## 참여 페이지
 
 ![메인 화면](https://github.com/HwangJaemin49/Emasiya_Final/assets/97292379/58ba7ae6-3901-4fec-9ecc-22e1c23031f3)<br>
-메인 화면
+메인 페이지<br>
+![주변 맛집](https://github.com/HwangJaemin49/Emasiya_Final/assets/97292379/231efbca-af19-497a-ab69-24186819c0bb)<br>
+주변 맛집 페이지<br>
+![맛집 리스트](https://github.com/HwangJaemin49/Emasiya_Final/assets/97292379/559c2f03-0020-4216-9b95-c76719b50ac5)<br>
+맛집 리스트 페이지<br>
